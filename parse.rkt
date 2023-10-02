@@ -40,5 +40,10 @@
      ['() acc]
      [(cons a rest)
       (match a
-       [(list b c) (case-helper rest (append acc (list (Clause b (parse c)))))] )]))
+       [(list b c) (case-helper rest (append acc (list (Clause (case-helper2 b '())(parse c)))))] )]))
+(define (case-helper2 cs acc)
+  (match cs
+   ['() acc] 
+   [(cons a rest)
+    (case-helper2 rest (append acc (list (parse a))))]))
 
