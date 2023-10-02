@@ -17,6 +17,8 @@
      (if (interp e1)
          (interp e2)
          (interp e3))]
+    [(Cond cs e)
+     interp e]
     ;; TODO: Handle cond
     ;; TODO: Handle case
     ))
